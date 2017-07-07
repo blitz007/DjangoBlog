@@ -1,0 +1,17 @@
+<head>
+	<title>My Blog</title>
+</head>
+<body>
+{% if latest_list %}
+	<ul>
+	{% for post in latest_list %}
+		<li><a href='/{{post.id}}'><h1>{{post.topic}}</h1></a></li>
+		<p>Published at: {{post.pub_date}}</p>
+		<p>{{post.content}}</p>
+		<hr>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No Posts are available.</p>
+{% endif %}
+</body>
