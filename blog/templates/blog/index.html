@@ -2,6 +2,7 @@
 	<title>My Blog</title>
 </head>
 <body>
+<a href="{% url 'post_new' %}" class="top-menu"><button>New Post</button></a>
 {% if latest_list %}
 	<ul>
 	{% for post in latest_list %}

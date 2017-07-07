@@ -2,7 +2,6 @@
 <p>{{post.content}}</p>
 <hr>
 <h2>Comments:</h2>
-<a href="{{post_id}}/comment"><button>New Comment</button></a>
 <ul>
 {% for comment in post.comment_set.all %}
 	<li>{{comment.text}}</li>
