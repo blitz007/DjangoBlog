@@ -1,5 +1,17 @@
+<head>
+	<title>Blog No.{{post.id}}</title>
+	<link rel="stylesheet" type="text/css" href="../../static/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/index.css">
+</head>
+<body>
+<div id="header">
+<h1><a href="#">My Blog!!!</a></h1>
+</div>
+{% load staticfiles %}
 <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+</body>

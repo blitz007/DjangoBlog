@@ -1,0 +1,28 @@
+#header{
+	background-color: 	#483d8b;
+}
+h1 a{
+	color: #FFFFFF;
+	font-size: 50px;
+	text-decoration: none;
+	padding-left: 10px;
+	padding-bottom: 15px;
+
+}
+
+#glyph{
+	float: right;
+	padding-right: 25px;
+	font-size: 50px;
+
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+body{
+	background-image: url('background.png');
+	background-repeat: no-repeat;
+}
+

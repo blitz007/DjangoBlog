@@ -1,8 +1,15 @@
 <head>
 	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="../../static/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/index.css">
 </head>
 <body>
-<a href="{% url 'post_new' %}" class="top-menu"><button>New Post</button></a>
+<div id="header">
+<h1><a href="#">My Blog!!!</a></h1>
+<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" aria-hidden="true" id="glyph"></span></a>
+</div>
+
 {% if latest_list %}
 	<ul>
 	{% for post in latest_list %}
