@@ -13,17 +13,17 @@ def index(request):
 def detail(request, post_id):
 	post=get_object_or_404(Post,pk=post_id)
 	if request.method=='POST':
-		form=CommentForm(request.POST)
-		if form.is_valid():
-			comment=form.save(commit=False)
+		form1=CommentForm(request.POST)
+		if form1.is_valid():
+			comment=form1.save(commit=False)
 			comment.post=post
 			comment.pub_date=timezone.now()
 			comment.save()
 			return redirect('detail',post_id=post.id)
 
 	else:
-		form = CommentForm()
-	return render(request,'blog/detail.html',{'form':form,'post':post,})
+		form1 = CommentForm()
+	return render(request,'blog/detail.html',{'form1':form1,'post':post,})
 		
 '''post=get_object_or_404(Post, pk=post_id)
 return render(request, 'blog/detail.html',{'post':post})'''
@@ -39,5 +39,20 @@ def post_new(request):
     else:
     	form = PostForm()
     return render(request,'blog/post_edit.html',{'form':form,})
+
+'''def like_post(request,post_id):
+	post=get_object_or_404(Post,pk=post_id)
+	if request.method=='POST':
+		form=LikePostForm(request.POST)
+		if form_is_valid():
+			post=form.save(commit=False)
+			post.votes+=1
+			post.save()
+			return redirect('detail',post_id=post.id)
+
+	else:
+		form=LikePostForm()
+	return render(request,'blog/detail.html',{'form':form,'post':post,})
+'''
 
 # Create your views here.

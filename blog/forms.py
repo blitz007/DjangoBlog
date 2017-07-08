@@ -12,3 +12,10 @@ class CommentForm(ModelForm):
 	class Meta:
 		model=Comment
 		fields=('text',)
+
+'''class LikePostForm(ModelForm):
+
+	class Meta:
+		model=Post
+		fields=('votes',)
+		exclude=('topic','content','pub_date')'''
