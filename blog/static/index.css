@@ -32,10 +32,16 @@ body{
 	background-position: center-bottom;
 	background-attachment: fixed;
 	background-size: cover;
+
 }
 
 .post-form{
 	padding-left: 10px;
+}
+
+#main{
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 
