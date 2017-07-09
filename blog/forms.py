@@ -13,9 +13,8 @@ class CommentForm(ModelForm):
 		model=Comment
 		fields=('text',)
 
-'''class LikePostForm(ModelForm):
+class LikePostForm(ModelForm):
 
 	class Meta:
 		model=Post
-		fields=('votes',)
-		exclude=('topic','content','pub_date')'''
+		exclude=('topic','content','pub_date','votes')

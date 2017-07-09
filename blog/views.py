@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404,render
 from .models import Post,Comment
 from django.utils import timezone
 from django.shortcuts import redirect
-from .forms import PostForm,CommentForm
+from .forms import PostForm,CommentForm,LikePostForm
 
 
 def index(request):
@@ -14,6 +14,7 @@ def detail(request, post_id):
 	post=get_object_or_404(Post,pk=post_id)
 	if request.method=='POST':
 		form1=CommentForm(request.POST)
+		'''form=LikePostForm(request.POST)'''
 		if form1.is_valid():
 			comment=form1.save(commit=False)
 			comment.post=post
@@ -21,8 +22,15 @@ def detail(request, post_id):
 			comment.save()
 			return redirect('detail',post_id=post.id)
 
+		'''elif form.is_valid() and not form1.is_valid():
+			post=form.save(commit=False)
+			post.votes+=1
+			post.save()
+			return redirect('detail',post_id=post.id)'''
+
 	else:
 		form1 = CommentForm()
+		'''form=LikePostForm()'''
 	return render(request,'blog/detail.html',{'form1':form1,'post':post,})
 		
 '''post=get_object_or_404(Post, pk=post_id)
@@ -40,19 +48,8 @@ def post_new(request):
     	form = PostForm()
     return render(request,'blog/post_edit.html',{'form':form,})
 
-'''def like_post(request,post_id):
-	post=get_object_or_404(Post,pk=post_id)
-	if request.method=='POST':
-		form=LikePostForm(request.POST)
-		if form_is_valid():
-			post=form.save(commit=False)
-			post.votes+=1
-			post.save()
-			return redirect('detail',post_id=post.id)
 
-	else:
-		form=LikePostForm()
-	return render(request,'blog/detail.html',{'form':form,'post':post,})
-'''
+	
+
 
 # Create your views here.
